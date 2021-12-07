@@ -10,6 +10,7 @@ variable "vpc_cidr_block" {
 
 variable "subnet_cidr_block" {
   description = "subnet cidr block"
+  default = "10.0.10.0/24"
 }
 
 resource "aws_vpc" "development-vpc" {
