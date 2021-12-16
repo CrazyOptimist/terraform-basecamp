@@ -9,10 +9,6 @@ resource "aws_vpc" "myapp-vpc" {
   }
 }
 
-
-
-
-
 module "myapp-subnet" {
   source = "./modules/subnet"
   subnet_cidr_block = var.subnet_cidr_block
@@ -21,18 +17,6 @@ module "myapp-subnet" {
   vpc_id = aws_vpc.myapp-vpc.id
   default_route_table_id = aws_vpc.myapp-vpc.default_route_table_id
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 module "myapp-server" {
   source = "./modules/webserver"
