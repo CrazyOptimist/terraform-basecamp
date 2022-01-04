@@ -1,9 +1,13 @@
 terraform {
   required_version = ">= 1.0.0"
   backend "s3" {
-    bucket = "q2-terraform-state"
+    profile = "default"
+    bucket = "crazy-team-24u4gqiy8zjdv-state-bucket"
     key = "myapp/terraform.tfstate"
     region = "us-west-2"
+    encrypt = true
+    role_arn = "arn:aws:iam::854007244768:role/crazy-team-24u4gqiy8zjdv-tf-assume-role"
+    dynamodb_table = "crazy-team-24u4gqiy8zjdv-state-lock"
   }
 }
 
